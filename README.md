@@ -70,5 +70,6 @@ Adicionalmente:
 
 ## 9. Hash del ultimo commit (≤ 10H45)
 0184fd60c3a6966b18b73c3def15dba8008d3b92
+Abreviado: 0184fd6
 ---
 
