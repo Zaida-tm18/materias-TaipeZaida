@@ -1,0 +1,27 @@
+### Verificar cabeceras de seguridad (sin autenticar, debe redirigir a /login)
+GET http://localhost:8080/materias
+
+### Ver formulario de login
+GET http://localhost:8080/login
+
+### Verificar cabeceras de seguridad con curl (ejecutar en terminal, no en este archivo):
+# curl -I http://localhost:8080/login
+# Debe incluir: X-Frame-Options: DENY, X-Content-Type-Options: nosniff,
+# Strict-Transport-Security, Content-Security-Policy
+
+### Login (requiere primero obtener el token CSRF del formulario renderizado;
+### este archivo sirve como referencia manual, se recomienda probar desde el navegador
+### o con una coleccion Postman que maneje cookies y CSRF automaticamente)
+POST http://localhost:8080/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=Admin*2026
+
+### Listado de materias (requiere cookie de sesion activa)
+GET http://localhost:8080/materias
+
+### Formulario nueva materia
+GET http://localhost:8080/materias/nueva
+
+### Editar materia con id=1
+GET http://localhost:8080/materias/1/editar
