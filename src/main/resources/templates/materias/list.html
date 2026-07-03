@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Materias - UTEQ</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header class="topbar">
+    <h1>Mantenimiento de Materias</h1>
+    <form th:action="@{/logout}" method="post" class="inline">
+        <button type="submit" class="link-btn">Cerrar sesion</button>
+    </form>
+</header>
+
+<main>
+    <p class="ok" th:if="${mensaje}" th:text="${mensaje}"></p>
+
+    <a th:href="@{/materias/nueva}" class="btn">+ Nueva materia</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Creditos</th>
+            <th>Semestre</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- th:text escapa automaticamente cualquier salida dinamica (anti-XSS) -->
+        <tr th:each="m : ${materias}">
+            <td th:text="${m.codigo}"></td>
+            <td th:text="${m.nombre}"></td>
+            <td th:text="${m.creditos}"></td>
+            <td th:text="${m.semestre}"></td>
+            <td>
+                <a th:href="@{/materias/{id}/editar(id=${m.id})}">Editar</a>
+                <form th:action="@{/materias/{id}/eliminar(id=${m.id})}" method="post" class="inline"
+                      onsubmit="return confirm('¿Eliminar esta materia?');">
+                    <button type="submit" class="link-btn danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(materias)}">
+            <td colspan="5">No hay materias registradas.</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

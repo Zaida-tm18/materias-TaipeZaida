@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesion - Materias UTEQ</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="login-box">
+    <h1>Materias UTEQ</h1>
+    <h2>Iniciar sesion</h2>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+    <p class="ok" th:if="${logout}" th:text="${logout}"></p>
+
+    <!-- th:action inyecta automaticamente el token CSRF gracias a
+         thymeleaf-extras-springsecurity6 -->
+    <form th:action="@{/login}" method="post">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" name="username" required minlength="3" maxlength="50" autofocus>
+
+        <label for="password">Contrasena</label>
+        <input type="password" id="password" name="password" required minlength="4">
+
+        <button type="submit">Ingresar</button>
+    </form>
+    <p class="hint">Usuario semilla: <code>admin</code> / <code>Admin*2026</code></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: strict
+        secure: false   # cambiar a true cuando se sirva por HTTPS real
+
+spring:
+  application:
+    name: materias-practica
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:materias_db}
+    username: ${DB_USER:materias_user}
+    password: ${DB_PASSWORD:materias_pass}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  thymeleaf:
+    cache: false
