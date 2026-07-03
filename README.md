@@ -69,7 +69,6 @@ Adicionalmente:
   oculto `_csrf` generado por Spring Security + Thymeleaf.
 
 ## 9. Hash del ultimo commit (≤ 10H45)
-`<completar con el hash abreviado de 7 caracteres del commit correspondiente>`
-
+0184fd60c3a6966b18b73c3def15dba8008d3b92
 ---
 
