@@ -1,0 +1,10 @@
+-- El usuario admin se crea automaticamente al arrancar la aplicacion
+-- (ver src/main/java/com/uteq/materias/config/DataSeeder.java), usando
+-- BCryptPasswordEncoder para generar el hash real en tiempo de ejecucion.
+--
+-- Este archivo se deja como referencia del formato esperado. Un hash BCrypt
+-- valido para "Admin*2026" luce asi (el valor real se genera dinamicamente
+-- y cambia en cada arranque porque BCrypt incluye una sal aleatoria):
+--
+-- INSERT INTO usuarios (username, password_hash, rol)
+-- VALUES ('admin', '$2a$10$<hash_generado_por_bcrypt>', 'ADMIN');
